@@ -14,12 +14,12 @@ Comment.init({
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    user: {
-        type: DataTypes.TEXT,
+    user_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
             model: 'user',
-            id: 'username',
+            id: 'id',
         }
     },
     blog_id: {
@@ -29,6 +29,7 @@ Comment.init({
             id: 'id'
         }
     },
+}, {
     sequelize,
     timestamps: false,
     freezeTableName: true,
