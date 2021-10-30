@@ -10,24 +10,24 @@ Post.init({
         primaryKey: true,
         autoIncrement: true,
     },
-    //     title: {
-    //         type: DataTypes.STRING,
-    //         allowNull: false,
-    //     },
-    //     content: {
-    //         type: DataTypes.TEXT,
-    //         allowNull: false,
-    //     },
-    //     user: {
-    //         type: DataTypes.TEXT,
-    //         allowNull: false,
-    //         references: {
-    //             model: 'user',
-    //             id: 'id',
-    //         }
-    //         //date created
-    //     }
-    // }, {
+    title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    content: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    user: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        references: {
+            model: 'user',
+            id: 'id',
+        }
+        //date created
+    }
+}, {
     sequelize,
     timestamps: false,
     freezeTableName: true,
