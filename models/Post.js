@@ -26,8 +26,7 @@ Post.init({
             id: 'id',
         }
         //date created
-    }
-}, {
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,

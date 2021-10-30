@@ -28,9 +28,7 @@ Comment.init({
             model: 'post',
             id: 'id'
         }
-    }
-
-}, {
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
