@@ -1,5 +1,10 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
+// const Comment = require('../models/Comment');
+// const User = require('../models/User');
+// const Post = require('../models/Post');
+// const models = require('../models/index')
+
 
 const sequelize = new Sequelize(
     process.env.DB_NAME,
