@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 
 router.get('/', async(req, res) => {
-    console.log('am i broken');
     try {
         // var projectData = await Project.findAll();
         // var projectData = [];

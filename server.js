@@ -1,9 +1,6 @@
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
-// const User = require('./models/User');
-// const Comment = require('./models/Comment');
-// const Post = require('./models/Post');
 const models = require('./models/index');
 
 const app = express();
