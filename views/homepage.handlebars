@@ -1,8 +1,11 @@
 <div class="card">
-  <h5 class="card-header">Blog Post Number</h5>
+   {{#each postData as |post|}}
+  <h2 class="card-header">{{post.title}}</h2>
   <div class="card-body">
-    <h5 class="card-title">Blog Post Title</h5>
-    <p class="card-text">This is the text content of my blog post</p>
+    <h5 class="card-title">{{post.user_id}}</h5>
+    <p class="card-text">{{post.content}}</p>
     <a href="#" class="btn btn-primary">comment</a>
   </div>
+    {{/each}}
 </div>
+

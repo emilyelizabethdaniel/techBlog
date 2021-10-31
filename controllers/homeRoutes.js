@@ -1,26 +1,40 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 
-router.get('/', async(req, res) => {
+router.get('/homepage', async(req, res) => {
     try {
-        // var projectData = await Project.findAll();
-        // var projectData = [];
-        // projectData.forEach(projObj => {
+        const mapData = await Post.findAll();
+        const postData = mapData.map(postObj => postObj.get({ plain: true }))
 
-        //     projectData.push(projObj.get({ plain: true }))
-        // })
-        // res.render('homepage', { project: projectData })
-        // same code using mapping
-        const postData = await Post.findAll();
-        const mappedData = postData.map(postObj => postObj.get({ plain: true }))
-            // const project = projObj.get({ plain: true });
-        console.log(mappedData);
-        res.render('homepage', { mappedData });
+        console.log(postData);
+        res.render('homepage', { postData });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     };
 
 });
+
+
+router.get('/post/:id', async(req, res) => {
+    try {
+        const post = await Post.findByPk(req.params.id, {
+            // include: [{
+            //     model: Post,
+            //     attributes: ['content'],
+            // }, ],
+        });
+
+        const postData = post.get({ plain: true });
+        console.log(postData);
+        res.render('post', {
+            ...postData,
+            // logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;
