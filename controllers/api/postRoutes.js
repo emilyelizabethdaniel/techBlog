@@ -1,33 +1,8 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { Post, Comment } = require('../../models');
 
 module.exports = router;
 
-router.get('/users', async(req, res) => {
-    try {
-        const userData = await User.findAll({
-            // include: [{ model: Product }],
-        });
-        res.status(200).json(userData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-})
-
-router.post('/new-user', async(req, res) => {
-    // create a new category
-    try {
-        const userData = await User.create({
-            username: req.body.username,
-            password: req.body.password
-
-        });
-        res.status(200).json(userData);
-    } catch (err) {
-        console.log(err);
-        res.status(400).json(err);
-    }
-});
 
 router.post('/new-post', async(req, res) => {
     // create a new category
@@ -75,6 +50,11 @@ router.post('/new-comment', async(req, res) => {
 
 router.get('/comments', async(req, res) => {
     try {
+        // const numbers = [1, 1, 1, 2] ;
+
+        // const numberOnes = numbers.filter(num => {
+        //     return num === 1;
+        // })
         const commentData = await Comment.findAll({
             // include: [{ model: Product }],
         });
