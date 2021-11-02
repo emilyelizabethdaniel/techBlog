@@ -86,5 +86,9 @@ router.post('/user/logout', (req, res) => {
     }
 });
 
+router.get('/newuser', async(req, res) => {
+    res.render('newuser');
+})
+
 
 module.exports = router;
